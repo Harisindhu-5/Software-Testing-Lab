@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Your Wishlist</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in wishlist.items.all %}
+      <tr>
+        <td>{{ item.product.name }}</td>
+        <td>${{ item.product.price }}</td>
+        <td>
+          <form method="post">
+            {% csrf_token %}
+            <button type="submit" name="add_to_cart_{{ item.id }}" class="btn btn-success btn-sm">Add to Cart</button>
+            <button type="submit" name="remove_{{ item.id }}" class="btn btn-danger btn-sm">Remove</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %} 

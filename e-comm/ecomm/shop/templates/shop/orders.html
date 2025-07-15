@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Your Orders</h2>
+  <div class="accordion" id="ordersAccordion">
+    {% for order in orders %}
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading{{ order.id }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="false" aria-controls="collapse{{ order.id }}">
+          Order #{{ order.id }} - {{ order.status }} - {{ order.created_at|date:'Y-m-d H:i' }}
+        </button>
+      </h2>
+      <div id="collapse{{ order.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ order.id }}" data-bs-parent="#ordersAccordion">
+        <div class="accordion-body">
+          <p><strong>Address:</strong> {{ order.address }}</p>
+          <ul>
+            {% for item in order.items.all %}
+            <li>{{ item.quantity }} x {{ item.product.name }} @ ${{ item.price }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p>No orders found.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %} 

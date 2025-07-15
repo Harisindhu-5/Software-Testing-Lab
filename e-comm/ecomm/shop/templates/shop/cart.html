@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Your Cart</h2>
+  <form method="post">
+    {% csrf_token %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart.items.all %}
+        <tr>
+          <td>{{ item.product.name }}</td>
+          <td>${{ item.product.price }}</td>
+          <td>
+            <input type="number" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="1" class="form-control w-50">
+          </td>
+          <td>${{ item.product.price|floatformat:2|add:item.quantity|floatformat:2 }}</td>
+          <td>
+            <button type="submit" name="remove_{{ item.id }}" class="btn btn-danger btn-sm">Remove</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h4>Total: ${{ total_price }}</h4>
+    <button type="submit" name="update_cart" class="btn btn-primary">Update Cart</button>
+    <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
+  </form>
+</div>
+{% endblock %} 
