@@ -1,0 +1,49 @@
+# Testing Dependencies for E-Commerce Application
+# Software Testing Laboratory Requirements
+
+# Core Django Testing
+Django>=5.2.4
+django-debug-toolbar>=4.2.0
+
+# Coverage and Testing Tools
+coverage>=7.3.0
+pytest>=7.4.0
+pytest-django>=4.7.0
+pytest-cov>=4.1.0
+
+# Selenium WebDriver for Browser Automation
+selenium>=4.15.0
+webdriver-manager>=4.0.0
+
+# Performance Testing
+psutil>=5.9.0
+memory-profiler>=0.61.0
+django-silk>=5.0.0
+
+# Security Testing
+bandit>=1.7.0
+safety>=2.3.0
+
+# Load Testing
+locust>=2.15.0
+
+# Database Testing
+factory-boy>=3.3.0
+faker>=19.0.0
+
+# API Testing
+requests>=2.31.0
+httpx>=0.25.0
+
+# Test Reporting
+pytest-html>=3.2.0
+pytest-xdist>=3.3.0
+
+# Code Quality
+black>=23.0.0
+flake8>=6.0.0
+isort>=5.12.0
+
+# Additional Testing Utilities
+freezegun>=1.2.0
+responses>=0.23.0 

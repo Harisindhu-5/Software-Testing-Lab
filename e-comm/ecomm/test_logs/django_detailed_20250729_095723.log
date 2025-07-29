@@ -1,0 +1,859 @@
+2025-07-29 09:57:23,257 - django_detailed - INFO - ============================================================
+2025-07-29 09:57:23,257 - django_detailed - INFO - TEST SESSION STARTED
+2025-07-29 09:57:23,257 - django_detailed - INFO - ============================================================
+2025-07-29 09:57:23,257 - django_detailed - INFO - Test Type: django
+2025-07-29 09:57:23,257 - django_detailed - INFO - Timestamp: 20250729_095723
+2025-07-29 09:57:23,257 - django_detailed - INFO - Session Info: {
+  "command": "python manage.py test -v 2",
+  "description": "All Tests",
+  "test_type": "django",
+  "working_directory": "C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm"
+}
+2025-07-29 09:57:55,605 - django_detailed - INFO - Performance - Command Duration: 32.34523272514343 seconds
+2025-07-29 09:57:55,605 - django_detailed - INFO - STDOUT:
+2025-07-29 09:57:55,605 - django_detailed - INFO - Found 49 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: messages, staticfiles
+  Apply all migrations: admin, auth, contenttypes, sessions, shop
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0001_initial... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying shop.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying sessions.0001_initial... OK
+System check identified no issues (0 silenced).
+
+2025-07-29 09:57:55,605 - django_detailed - ERROR - STDERR:
+2025-07-29 09:57:55,605 - django_detailed - ERROR - Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+test_form_submission (shop.tests.APITest.test_form_submission)
+Test form submission and validation ... ok
+test_response_content_types (shop.tests.APITest.test_response_content_types)
+Test response content types ... ok
+test_template_rendering (shop.tests.APITest.test_template_rendering)
+Test that templates render correctly ... ok
+test_url_patterns (shop.tests.APITest.test_url_patterns)
+Test all URL patterns are accessible ... ok
+test_add_to_cart_workflow (shop.tests.CartIntegrationTest.test_add_to_cart_workflow)
+Test complete add to cart workflow ... ok
+test_cart_quantity_update (shop.tests.CartIntegrationTest.test_cart_quantity_update)
+Test cart quantity update functionality ... ok
+test_cart_creation (shop.tests.CartModelTest.test_cart_creation)
+Test cart creation for user ... ok
+test_cart_item_creation (shop.tests.CartModelTest.test_cart_item_creation)
+Test adding items to cart ... ok
+test_cart_total_calculation (shop.tests.CartModelTest.test_cart_total_calculation)
+Test cart total calculation ... ok
+test_complete_ecommerce_workflow (shop.tests.ComprehensiveTestSuite.test_complete_ecommerce_workflow)
+Test complete e-commerce workflow from registration to purchase ... ERROR
+test_concurrent_cart_operations (shop.tests.ConcurrencyTest.test_concurrent_cart_operations)
+Test concurrent cart operations ... Exception in thread Thread-1 (add_to_cart):
+Exception in thread Thread-2 (add_to_cart):
+Exception in thread Thread-3 (add_to_cart):
+Exception in thread Thread-5 (add_to_cart):
+Exception in thread Thread-4 (add_to_cart):
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: database table is locked: shop_user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "C:\Program Files\Lib\threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+Traceback (most recent call last):
+  File "C:\Program Files\Lib\threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: database table is locked: shop_user
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 858, in add_to_cart
+    client.login(username='buyer', password='testpass123')
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The above exception was the direct cause of the following exception:
+
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 835, in login
+    user = authenticate(**credentials)
+Traceback (most recent call last):
+sqlite3.OperationalError: database table is locked: shop_user
+
+The above exception was the direct cause of the following exception:
+
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+sqlite3.OperationalError: database table is locked: shop_user
+Traceback (most recent call last):
+sqlite3.OperationalError: database table is locked: shop_user
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 114, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "C:\Program Files\Lib\threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+
+The above exception was the direct cause of the following exception:
+
+
+The above exception was the direct cause of the following exception:
+
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\backends.py", line 65, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "C:\Program Files\Lib\threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Lib\threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Lib\threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 858, in add_to_cart
+    client.login(username='buyer', password='testpass123')
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Lib\threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 858, in add_to_cart
+    client.login(username='buyer', password='testpass123')
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Lib\threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 835, in login
+    user = authenticate(**credentials)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 858, in add_to_cart
+    client.login(username='buyer', password='testpass123')
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 835, in login
+    user = authenticate(**credentials)
+  File "C:\Program Files\Lib\threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 835, in login
+    user = authenticate(**credentials)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 114, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "C:\Program Files\Lib\threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\backends.py", line 65, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 114, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 858, in add_to_cart
+    client.login(username='buyer', password='testpass123')
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 114, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 835, in login
+    user = authenticate(**credentials)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\backends.py", line 65, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 114, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\backends.py", line 65, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: database table is locked: shop_user
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\backends.py", line 65, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+django.db.utils.OperationalError: database table is locked: shop_user
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+django.db.utils.OperationalError: database table is locked: shop_user
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.OperationalError: database table is locked: shop_user
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: database table is locked: shop_user
+ERROR
+test_product_price_validation (shop.tests.DataValidationTest.test_product_price_validation)
+Test product price validation ... FAIL
+test_unique_constraints (shop.tests.DataValidationTest.test_unique_constraints)
+Test unique constraints ... ok
+test_user_email_validation (shop.tests.DataValidationTest.test_user_email_validation)
+Test user email validation ... ERROR
+test_access_restricted_pages_without_login (shop.tests.EdgeCaseTest.test_access_restricted_pages_without_login)
+Test accessing restricted pages without login ... ok
+test_buyer_accessing_seller_features (shop.tests.EdgeCaseTest.test_buyer_accessing_seller_features)
+Test buyer trying to access seller-specific features ... ok
+test_duplicate_username_registration (shop.tests.EdgeCaseTest.test_duplicate_username_registration)
+Test registration with duplicate username ... ok
+test_empty_cart_checkout (shop.tests.EdgeCaseTest.test_empty_cart_checkout)
+Test checkout with empty cart ... ok
+test_invalid_login_credentials (shop.tests.EdgeCaseTest.test_invalid_login_credentials)
+Test login with invalid credentials ... ok
+test_product_with_negative_price (shop.tests.EdgeCaseTest.test_product_with_negative_price)
+Test product creation with negative price ... ERROR
+test_product_with_zero_price (shop.tests.EdgeCaseTest.test_product_with_zero_price)
+Test product creation with zero price ... ERROR
+test_seller_accessing_buyer_features (shop.tests.EdgeCaseTest.test_seller_accessing_buyer_features)
+Test seller trying to access buyer-specific features ... ok
+test_database_constraint_violations (shop.tests.ErrorHandlingTest.test_database_constraint_violations)
+Test database constraint violations ... ok
+test_invalid_url_patterns (shop.tests.ErrorHandlingTest.test_invalid_url_patterns)
+Test invalid URL patterns ... ok
+test_malformed_form_data (shop.tests.ErrorHandlingTest.test_malformed_form_data)
+Test form submission with malformed data ... ERROR
+test_nonexistent_product_access (shop.tests.ErrorHandlingTest.test_nonexistent_product_access)
+Test accessing non-existent product ... ok
+test_checkout_workflow (shop.tests.OrderIntegrationTest.test_checkout_workflow)
+Test complete checkout workflow ... ok
+test_order_creation (shop.tests.OrderModelTest.test_order_creation)
+Test order creation ... ok
+test_order_item_creation (shop.tests.OrderModelTest.test_order_item_creation)
+Test order item creation ... ok
+test_database_query_optimization (shop.tests.PerformanceTest.test_database_query_optimization)
+Test that database queries are optimized ... ERROR
+test_large_cart_performance (shop.tests.PerformanceTest.test_large_cart_performance)
+Test performance with large cart ... ok
+test_product_list_performance (shop.tests.PerformanceTest.test_product_list_performance)
+Test product list page performance ... ok
+test_product_creation (shop.tests.ProductModelTest.test_product_creation)
+Test basic product creation ... ok
+test_product_price_validation (shop.tests.ProductModelTest.test_product_price_validation)
+Test product price validation ... FAIL
+test_product_string_representation (shop.tests.ProductModelTest.test_product_string_representation)
+Test product string representation ... ok
+test_authentication_required_pages (shop.tests.SecurityTest.test_authentication_required_pages)
+Test that protected pages require authentication ... ok
+test_authorization_based_on_user_role (shop.tests.SecurityTest.test_authorization_based_on_user_role)
+Test authorization based on user roles ... ok
+test_csrf_protection (shop.tests.SecurityTest.test_csrf_protection)
+Test CSRF protection on forms ... FAIL
+test_product_ownership_validation (shop.tests.SecurityTest.test_product_ownership_validation)
+Test that sellers can only edit their own products ... ok
+test_session_management (shop.tests.SecurityTest.test_session_management)
+Test session management and logout ... ok
+test_form_validation_messages (shop.tests.UsabilityTest.test_form_validation_messages)
+Test form validation messages ... ERROR
+test_navigation_consistency (shop.tests.UsabilityTest.test_navigation_consistency)
+Test navigation consistency across pages ... ok
+test_responsive_design_elements (shop.tests.UsabilityTest.test_responsive_design_elements)
+Test responsive design elements ... ok
+test_success_messages (shop.tests.UsabilityTest.test_success_messages)
+Test success messages after actions ... FAIL
+test_user_creation (shop.tests.UserModelTest.test_user_creation)
+Test basic user creation ... ok
+test_user_role_validation (shop.tests.UserModelTest.test_user_role_validation)
+Test user role validation ... ok
+test_user_string_representation (shop.tests.UserModelTest.test_user_string_representation)
+Test user string representation ... ok
+test_buyer_registration_and_purchase_workflow (shop.tests.UserWorkflowTest.test_buyer_registration_and_purchase_workflow)
+Test complete buyer registration and purchase workflow ... FAIL
+test_seller_registration_and_product_management_workflow (shop.tests.UserWorkflowTest.test_seller_registration_and_product_management_workflow)
+Test complete seller registration and product management workflow ... ok
+
+======================================================================
+ERROR: test_complete_ecommerce_workflow (shop.tests.ComprehensiveTestSuite.test_complete_ecommerce_workflow)
+Test complete e-commerce workflow from registration to purchase
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 1047, in test_complete_ecommerce_workflow
+    product = Product.objects.get(name='Comprehensive Test Product')
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+shop.models.Product.DoesNotExist: Product matching query does not exist.
+
+======================================================================
+ERROR: test_concurrent_cart_operations (shop.tests.ConcurrencyTest.test_concurrent_cart_operations)
+Test concurrent cart operations
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 876, in test_concurrent_cart_operations
+    cart = Cart.objects.get(user=self.buyer)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+shop.models.Cart.DoesNotExist: Cart matching query does not exist.
+
+======================================================================
+ERROR: test_user_email_validation (shop.tests.DataValidationTest.test_user_email_validation)
+Test user email validation
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 798, in test_user_email_validation
+    user.full_clean()  # Should not raise exception
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\base.py", line 1679, in full_clean
+    raise ValidationError(errors)
+django.core.exceptions.ValidationError: {'password': ['This field cannot be blank.']}
+
+======================================================================
+ERROR: test_product_with_negative_price (shop.tests.EdgeCaseTest.test_product_with_negative_price)
+Test product creation with negative price
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 503, in test_product_with_negative_price
+    response = self.client.post(reverse('product_create'), {
+        'name': 'Negative Product',
+    ...<2 lines>...
+        'image': 'https://example.com/image.jpg'
+    })
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 1153, in post
+    response = super().post(
+        path,
+    ...<5 lines>...
+        **extra,
+    )
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 499, in post
+    return self.generic(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<6 lines>...
+        **extra,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 1087, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 802, in check_exception
+    raise exc_value
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\views.py", line 153, in product_create
+    product.shop = request.user.shop
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 534, in __get__
+    raise self.RelatedObjectDoesNotExist(
+    ...<2 lines>...
+    )
+shop.models.User.shop.RelatedObjectDoesNotExist: User has no shop.
+
+======================================================================
+ERROR: test_product_with_zero_price (shop.tests.EdgeCaseTest.test_product_with_zero_price)
+Test product creation with zero price
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 489, in test_product_with_zero_price
+    response = self.client.post(reverse('product_create'), {
+        'name': 'Free Product',
+    ...<2 lines>...
+        'image': 'https://example.com/image.jpg'
+    })
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 1153, in post
+    response = super().post(
+        path,
+    ...<5 lines>...
+        **extra,
+    )
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 499, in post
+    return self.generic(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<6 lines>...
+        **extra,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 1087, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 802, in check_exception
+    raise exc_value
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\views.py", line 153, in product_create
+    product.shop = request.user.shop
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 534, in __get__
+    raise self.RelatedObjectDoesNotExist(
+    ...<2 lines>...
+    )
+shop.models.User.shop.RelatedObjectDoesNotExist: User has no shop.
+
+======================================================================
+ERROR: test_malformed_form_data (shop.tests.ErrorHandlingTest.test_malformed_form_data)
+Test form submission with malformed data
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 903, in test_malformed_form_data
+    response = self.client.post(reverse('signup'), {
+        'username': '',  # Empty username
+    ...<2 lines>...
+        'role': 'invalid-role'
+    })
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 1153, in post
+    response = super().post(
+        path,
+    ...<5 lines>...
+        **extra,
+    )
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 499, in post
+    return self.generic(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<6 lines>...
+        **extra,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 1087, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 802, in check_exception
+    raise exc_value
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\views.py", line 106, in signup_view
+    user = User.objects.create_user(username=username, email=email, password=password, role=role)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\models.py", line 175, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\models.py", line 162, in _create_user
+    user = self._create_user_object(username, email, password, **extra_fields)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\models.py", line 145, in _create_user_object
+    raise ValueError("The given username must be set")
+ValueError: The given username must be set
+
+======================================================================
+ERROR: test_database_query_optimization (shop.tests.PerformanceTest.test_database_query_optimization)
+Test that database queries are optimized
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 559, in test_database_query_optimization
+    connection.queries = []
+    ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\utils\connection.py", line 18, in __setattr__
+    return setattr(self._connections[self._alias], name, value)
+AttributeError: property 'queries' of 'DatabaseWrapper' object has no setter
+
+======================================================================
+ERROR: test_form_validation_messages (shop.tests.UsabilityTest.test_form_validation_messages)
+Test form validation messages
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 967, in test_form_validation_messages
+    response = self.client.post(reverse('signup'), {
+        'username': '',  # Empty username
+    ...<2 lines>...
+        'role': 'buyer'
+    })
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 1153, in post
+    response = super().post(
+        path,
+    ...<5 lines>...
+        **extra,
+    )
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 499, in post
+    return self.generic(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<6 lines>...
+        **extra,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 1087, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\test\client.py", line 802, in check_exception
+    raise exc_value
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\views.py", line 106, in signup_view
+    user = User.objects.create_user(username=username, email=email, password=password, role=role)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\models.py", line 175, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\models.py", line 162, in _create_user
+    user = self._create_user_object(username, email, password, **extra_fields)
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\venv\Lib\site-packages\django\contrib\auth\models.py", line 145, in _create_user_object
+    raise ValueError("The given username must be set")
+ValueError: The given username must be set
+
+======================================================================
+FAIL: test_product_price_validation (shop.tests.DataValidationTest.test_product_price_validation)
+Test product price validation
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 787, in test_product_price_validation
+    with self.assertRaises(ValidationError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: ValidationError not raised
+
+======================================================================
+FAIL: test_product_price_validation (shop.tests.ProductModelTest.test_product_price_validation)
+Test product price validation
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 83, in test_product_price_validation
+    with self.assertRaises(ValidationError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: ValidationError not raised
+
+======================================================================
+FAIL: test_csrf_protection (shop.tests.SecurityTest.test_csrf_protection)
+Test CSRF protection on forms
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 627, in test_csrf_protection
+    self.assertEqual(response.status_code, 403)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 302 != 403
+
+======================================================================
+FAIL: test_success_messages (shop.tests.UsabilityTest.test_success_messages)
+Test success messages after actions
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 988, in test_success_messages
+    self.assertEqual(response.status_code, 302)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 200 != 302
+
+======================================================================
+FAIL: test_buyer_registration_and_purchase_workflow (shop.tests.UserWorkflowTest.test_buyer_registration_and_purchase_workflow)
+Test complete buyer registration and purchase workflow
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\22i223\Documents\Software-Testing-Lab\e-comm\ecomm\shop\tests.py", line 347, in test_buyer_registration_and_purchase_workflow
+    self.assertEqual(response.status_code, 302)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 200 != 302
+
+----------------------------------------------------------------------
+Ran 49 tests in 31.831s
+
+FAILED (failures=5, errors=8)
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+
+2025-07-29 09:57:55,605 - django_detailed - ERROR - [FAIL] Test FAILED: Command: All Tests (Duration: 32.35s)
+2025-07-29 09:57:55,605 - django_detailed - ERROR - Error: Exit code: 1
+2025-07-29 09:57:55,605 - django_detailed - DEBUG - Test details: {
+  "exit_code": 1,
+  "stdout_lines": 29,
+  "stderr_lines": 778,
+  "stderr": "Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...\n\ntest_form_submission (shop.tests.APITest.test_form_submission)\nTest form submission and validation ... ok\ntest_response_content_types (shop.tests.APITest.test_response_content_types)\nTest response content types ... ok\ntest_template_rendering (shop.tests.APITest.test_template_rendering)\nTest that templates render correctly ... ok\ntest_url_patterns (shop.tests.APITest.test_url_patterns)\nTest all URL patterns are accessible ... ok\ntest_add_to_cart_workflow (shop.tests.CartIntegrationTest.test_add_to_cart_workflow)\nTest complete add to cart workflow ... ok\ntest_cart_quantity_update (shop.tests.CartIntegrationTest.test_cart_quantity_update)\nTest cart quantity update functionality ... ok\ntest_cart_creation (shop.tests.CartModelTest.test_cart_creation)\nTest cart creation for user ... ok\ntest_cart_item_creation (shop.tests.CartModelTest.test_cart_item_creation)\nTest adding items to cart ... ok\ntest_cart_total_calculation (shop.tests.CartModelTest.test_cart_total_calculation)\nTest cart total calculation ... ok\ntest_complete_ecommerce_workflow (shop.tests.ComprehensiveTestSuite.test_complete_ecommerce_workflow)\nTest complete e-commerce workflow from registration to purchase ... ERROR\ntest_concurrent_cart_operations (shop.tests.ConcurrencyTest.test_concurrent_cart_operations)\nTest concurrent cart operations ... Exception in thread Thread-1 (add_to_cart):\nException in thread Thread-2 (add_to_cart):\nException in thread Thread-3 (add_to_cart):\nException in thread Thread-5 (add_to_cart):\nException in thread Thread-4 (add_to_cart):\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 105, in _execute\n    return self.cursor.execute(sql, params)\n           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\sqlite3\\base.py\", line 360, in execute\n    return super().execute(query, params)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\nsqlite3.OperationalError: database table is locked: shop_user\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\nTraceback (most recent call last):\n  File \"C:\\Program Files\\Lib\\threading.py\", line 1043, in _bootstrap_inner\n    self.run()\n    ~~~~~~~~^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 105, in _execute\n    return self.cursor.execute(sql, params)\n           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\sqlite3\\base.py\", line 360, in execute\n    return super().execute(query, params)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 105, in _execute\n    return self.cursor.execute(sql, params)\n           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 105, in _execute\n    return self.cursor.execute(sql, params)\n           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nTraceback (most recent call last):\n  File \"C:\\Program Files\\Lib\\threading.py\", line 994, in run\n    self._target(*self._args, **self._kwargs)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsqlite3.OperationalError: database table is locked: shop_user\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\sqlite3\\base.py\", line 360, in execute\n    return super().execute(query, params)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\sqlite3\\base.py\", line 360, in execute\n    return super().execute(query, params)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 105, in _execute\n    return self.cursor.execute(sql, params)\n           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 858, in add_to_cart\n    client.login(username='buyer', password='testpass123')\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nThe above exception was the direct cause of the following exception:\n\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\sqlite3\\base.py\", line 360, in execute\n    return super().execute(query, params)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 835, in login\n    user = authenticate(**credentials)\nTraceback (most recent call last):\nsqlite3.OperationalError: database table is locked: shop_user\n\nThe above exception was the direct cause of the following exception:\n\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\views\\decorators\\debug.py\", line 75, in sensitive_variables_wrapper\n    return func(*func_args, **func_kwargs)\nsqlite3.OperationalError: database table is locked: shop_user\nTraceback (most recent call last):\nsqlite3.OperationalError: database table is locked: shop_user\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\__init__.py\", line 114, in authenticate\n    user = backend.authenticate(request, **credentials)\n  File \"C:\\Program Files\\Lib\\threading.py\", line 1043, in _bootstrap_inner\n    self.run()\n    ~~~~~~~~^^\n\nThe above exception was the direct cause of the following exception:\n\n\nThe above exception was the direct cause of the following exception:\n\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\backends.py\", line 65, in authenticate\n    user = UserModel._default_manager.get_by_natural_key(username)\n  File \"C:\\Program Files\\Lib\\threading.py\", line 1043, in _bootstrap_inner\n    self.run()\n    ~~~~~~~~^^\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\base_user.py\", line 37, in get_by_natural_key\n    return self.get(**{self.model.USERNAME_FIELD: username})\n           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Lib\\threading.py\", line 994, in run\n    self._target(*self._args, **self._kwargs)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Lib\\threading.py\", line 994, in run\n    self._target(*self._args, **self._kwargs)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\manager.py\", line 87, in manager_method\n    return getattr(self.get_queryset(), name)(*args, **kwargs)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 629, in get\n    num = len(clone)\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 858, in add_to_cart\n    client.login(username='buyer', password='testpass123')\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Lib\\threading.py\", line 1043, in _bootstrap_inner\n    self.run()\n    ~~~~~~~~^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 366, in __len__\n    self._fetch_all()\n    ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 858, in add_to_cart\n    client.login(username='buyer', password='testpass123')\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Program Files\\Lib\\threading.py\", line 994, in run\n    self._target(*self._args, **self._kwargs)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 835, in login\n    user = authenticate(**credentials)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 858, in add_to_cart\n    client.login(username='buyer', password='testpass123')\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 835, in login\n    user = authenticate(**credentials)\n  File \"C:\\Program Files\\Lib\\threading.py\", line 1043, in _bootstrap_inner\n    self.run()\n    ~~~~~~~~^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 835, in login\n    user = authenticate(**credentials)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\views\\decorators\\debug.py\", line 75, in sensitive_variables_wrapper\n    return func(*func_args, **func_kwargs)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\__init__.py\", line 114, in authenticate\n    user = backend.authenticate(request, **credentials)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\views\\decorators\\debug.py\", line 75, in sensitive_variables_wrapper\n    return func(*func_args, **func_kwargs)\n  File \"C:\\Program Files\\Lib\\threading.py\", line 994, in run\n    self._target(*self._args, **self._kwargs)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\backends.py\", line 65, in authenticate\n    user = UserModel._default_manager.get_by_natural_key(username)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\__init__.py\", line 114, in authenticate\n    user = backend.authenticate(request, **credentials)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 1949, in _fetch_all\n    self._result_cache = list(self._iterable_class(self))\n                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\views\\decorators\\debug.py\", line 75, in sensitive_variables_wrapper\n    return func(*func_args, **func_kwargs)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 858, in add_to_cart\n    client.login(username='buyer', password='testpass123')\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 91, in __iter__\n    results = compiler.execute_sql(\n        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size\n    )\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\__init__.py\", line 114, in authenticate\n    user = backend.authenticate(request, **credentials)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 835, in login\n    user = authenticate(**credentials)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\sql\\compiler.py\", line 1623, in execute_sql\n    cursor.execute(sql, params)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 79, in execute\n    return self._execute_with_wrappers(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        sql, params, many=False, executor=self._execute\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\views\\decorators\\debug.py\", line 75, in sensitive_variables_wrapper\n    return func(*func_args, **func_kwargs)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\backends.py\", line 65, in authenticate\n    user = UserModel._default_manager.get_by_natural_key(username)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 92, in _execute_with_wrappers\n    return executor(sql, params, many, context)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\__init__.py\", line 114, in authenticate\n    user = backend.authenticate(request, **credentials)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\base_user.py\", line 37, in get_by_natural_key\n    return self.get(**{self.model.USERNAME_FIELD: username})\n           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 100, in _execute\n    with self.db.wrap_database_errors:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\backends.py\", line 65, in authenticate\n    user = UserModel._default_manager.get_by_natural_key(username)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\manager.py\", line 87, in manager_method\n    return getattr(self.get_queryset(), name)(*args, **kwargs)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\utils.py\", line 91, in __exit__\n    raise dj_exc_value.with_traceback(traceback) from exc_value\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\base_user.py\", line 37, in get_by_natural_key\n    return self.get(**{self.model.USERNAME_FIELD: username})\n           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 629, in get\n    num = len(clone)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 105, in _execute\n    return self.cursor.execute(sql, params)\n           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\manager.py\", line 87, in manager_method\n    return getattr(self.get_queryset(), name)(*args, **kwargs)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 366, in __len__\n    self._fetch_all()\n    ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\sqlite3\\base.py\", line 360, in execute\n    return super().execute(query, params)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 629, in get\n    num = len(clone)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 1949, in _fetch_all\n    self._result_cache = list(self._iterable_class(self))\n                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ndjango.db.utils.OperationalError: database table is locked: shop_user\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 366, in __len__\n    self._fetch_all()\n    ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 91, in __iter__\n    results = compiler.execute_sql(\n        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size\n    )\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\base_user.py\", line 37, in get_by_natural_key\n    return self.get(**{self.model.USERNAME_FIELD: username})\n           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\sql\\compiler.py\", line 1623, in execute_sql\n    cursor.execute(sql, params)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\backends.py\", line 65, in authenticate\n    user = UserModel._default_manager.get_by_natural_key(username)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 1949, in _fetch_all\n    self._result_cache = list(self._iterable_class(self))\n                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\manager.py\", line 87, in manager_method\n    return getattr(self.get_queryset(), name)(*args, **kwargs)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 79, in execute\n    return self._execute_with_wrappers(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        sql, params, many=False, executor=self._execute\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\base_user.py\", line 37, in get_by_natural_key\n    return self.get(**{self.model.USERNAME_FIELD: username})\n           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 91, in __iter__\n    results = compiler.execute_sql(\n        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size\n    )\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 629, in get\n    num = len(clone)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 92, in _execute_with_wrappers\n    return executor(sql, params, many, context)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\manager.py\", line 87, in manager_method\n    return getattr(self.get_queryset(), name)(*args, **kwargs)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\sql\\compiler.py\", line 1623, in execute_sql\n    cursor.execute(sql, params)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 366, in __len__\n    self._fetch_all()\n    ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 100, in _execute\n    with self.db.wrap_database_errors:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 629, in get\n    num = len(clone)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 79, in execute\n    return self._execute_with_wrappers(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        sql, params, many=False, executor=self._execute\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 1949, in _fetch_all\n    self._result_cache = list(self._iterable_class(self))\n                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\utils.py\", line 91, in __exit__\n    raise dj_exc_value.with_traceback(traceback) from exc_value\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 366, in __len__\n    self._fetch_all()\n    ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 92, in _execute_with_wrappers\n    return executor(sql, params, many, context)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 91, in __iter__\n    results = compiler.execute_sql(\n        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size\n    )\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 105, in _execute\n    return self.cursor.execute(sql, params)\n           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 1949, in _fetch_all\n    self._result_cache = list(self._iterable_class(self))\n                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 100, in _execute\n    with self.db.wrap_database_errors:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\sql\\compiler.py\", line 1623, in execute_sql\n    cursor.execute(sql, params)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\sqlite3\\base.py\", line 360, in execute\n    return super().execute(query, params)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 91, in __iter__\n    results = compiler.execute_sql(\n        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size\n    )\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\utils.py\", line 91, in __exit__\n    raise dj_exc_value.with_traceback(traceback) from exc_value\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 79, in execute\n    return self._execute_with_wrappers(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        sql, params, many=False, executor=self._execute\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\ndjango.db.utils.OperationalError: database table is locked: shop_user\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\sql\\compiler.py\", line 1623, in execute_sql\n    cursor.execute(sql, params)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 105, in _execute\n    return self.cursor.execute(sql, params)\n           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 92, in _execute_with_wrappers\n    return executor(sql, params, many, context)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\sqlite3\\base.py\", line 360, in execute\n    return super().execute(query, params)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 79, in execute\n    return self._execute_with_wrappers(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        sql, params, many=False, executor=self._execute\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\ndjango.db.utils.OperationalError: database table is locked: shop_user\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 92, in _execute_with_wrappers\n    return executor(sql, params, many, context)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 100, in _execute\n    with self.db.wrap_database_errors:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 100, in _execute\n    with self.db.wrap_database_errors:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\utils.py\", line 91, in __exit__\n    raise dj_exc_value.with_traceback(traceback) from exc_value\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\utils.py\", line 91, in __exit__\n    raise dj_exc_value.with_traceback(traceback) from exc_value\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 105, in _execute\n    return self.cursor.execute(sql, params)\n           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\sqlite3\\base.py\", line 360, in execute\n    return super().execute(query, params)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\utils.py\", line 105, in _execute\n    return self.cursor.execute(sql, params)\n           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\ndjango.db.utils.OperationalError: database table is locked: shop_user\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\backends\\sqlite3\\base.py\", line 360, in execute\n    return super().execute(query, params)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\ndjango.db.utils.OperationalError: database table is locked: shop_user\nERROR\ntest_product_price_validation (shop.tests.DataValidationTest.test_product_price_validation)\nTest product price validation ... FAIL\ntest_unique_constraints (shop.tests.DataValidationTest.test_unique_constraints)\nTest unique constraints ... ok\ntest_user_email_validation (shop.tests.DataValidationTest.test_user_email_validation)\nTest user email validation ... ERROR\ntest_access_restricted_pages_without_login (shop.tests.EdgeCaseTest.test_access_restricted_pages_without_login)\nTest accessing restricted pages without login ... ok\ntest_buyer_accessing_seller_features (shop.tests.EdgeCaseTest.test_buyer_accessing_seller_features)\nTest buyer trying to access seller-specific features ... ok\ntest_duplicate_username_registration (shop.tests.EdgeCaseTest.test_duplicate_username_registration)\nTest registration with duplicate username ... ok\ntest_empty_cart_checkout (shop.tests.EdgeCaseTest.test_empty_cart_checkout)\nTest checkout with empty cart ... ok\ntest_invalid_login_credentials (shop.tests.EdgeCaseTest.test_invalid_login_credentials)\nTest login with invalid credentials ... ok\ntest_product_with_negative_price (shop.tests.EdgeCaseTest.test_product_with_negative_price)\nTest product creation with negative price ... ERROR\ntest_product_with_zero_price (shop.tests.EdgeCaseTest.test_product_with_zero_price)\nTest product creation with zero price ... ERROR\ntest_seller_accessing_buyer_features (shop.tests.EdgeCaseTest.test_seller_accessing_buyer_features)\nTest seller trying to access buyer-specific features ... ok\ntest_database_constraint_violations (shop.tests.ErrorHandlingTest.test_database_constraint_violations)\nTest database constraint violations ... ok\ntest_invalid_url_patterns (shop.tests.ErrorHandlingTest.test_invalid_url_patterns)\nTest invalid URL patterns ... ok\ntest_malformed_form_data (shop.tests.ErrorHandlingTest.test_malformed_form_data)\nTest form submission with malformed data ... ERROR\ntest_nonexistent_product_access (shop.tests.ErrorHandlingTest.test_nonexistent_product_access)\nTest accessing non-existent product ... ok\ntest_checkout_workflow (shop.tests.OrderIntegrationTest.test_checkout_workflow)\nTest complete checkout workflow ... ok\ntest_order_creation (shop.tests.OrderModelTest.test_order_creation)\nTest order creation ... ok\ntest_order_item_creation (shop.tests.OrderModelTest.test_order_item_creation)\nTest order item creation ... ok\ntest_database_query_optimization (shop.tests.PerformanceTest.test_database_query_optimization)\nTest that database queries are optimized ... ERROR\ntest_large_cart_performance (shop.tests.PerformanceTest.test_large_cart_performance)\nTest performance with large cart ... ok\ntest_product_list_performance (shop.tests.PerformanceTest.test_product_list_performance)\nTest product list page performance ... ok\ntest_product_creation (shop.tests.ProductModelTest.test_product_creation)\nTest basic product creation ... ok\ntest_product_price_validation (shop.tests.ProductModelTest.test_product_price_validation)\nTest product price validation ... FAIL\ntest_product_string_representation (shop.tests.ProductModelTest.test_product_string_representation)\nTest product string representation ... ok\ntest_authentication_required_pages (shop.tests.SecurityTest.test_authentication_required_pages)\nTest that protected pages require authentication ... ok\ntest_authorization_based_on_user_role (shop.tests.SecurityTest.test_authorization_based_on_user_role)\nTest authorization based on user roles ... ok\ntest_csrf_protection (shop.tests.SecurityTest.test_csrf_protection)\nTest CSRF protection on forms ... FAIL\ntest_product_ownership_validation (shop.tests.SecurityTest.test_product_ownership_validation)\nTest that sellers can only edit their own products ... ok\ntest_session_management (shop.tests.SecurityTest.test_session_management)\nTest session management and logout ... ok\ntest_form_validation_messages (shop.tests.UsabilityTest.test_form_validation_messages)\nTest form validation messages ... ERROR\ntest_navigation_consistency (shop.tests.UsabilityTest.test_navigation_consistency)\nTest navigation consistency across pages ... ok\ntest_responsive_design_elements (shop.tests.UsabilityTest.test_responsive_design_elements)\nTest responsive design elements ... ok\ntest_success_messages (shop.tests.UsabilityTest.test_success_messages)\nTest success messages after actions ... FAIL\ntest_user_creation (shop.tests.UserModelTest.test_user_creation)\nTest basic user creation ... ok\ntest_user_role_validation (shop.tests.UserModelTest.test_user_role_validation)\nTest user role validation ... ok\ntest_user_string_representation (shop.tests.UserModelTest.test_user_string_representation)\nTest user string representation ... ok\ntest_buyer_registration_and_purchase_workflow (shop.tests.UserWorkflowTest.test_buyer_registration_and_purchase_workflow)\nTest complete buyer registration and purchase workflow ... FAIL\ntest_seller_registration_and_product_management_workflow (shop.tests.UserWorkflowTest.test_seller_registration_and_product_management_workflow)\nTest complete seller registration and product management workflow ... ok\n\n======================================================================\nERROR: test_complete_ecommerce_workflow (shop.tests.ComprehensiveTestSuite.test_complete_ecommerce_workflow)\nTest complete e-commerce workflow from registration to purchase\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 1047, in test_complete_ecommerce_workflow\n    product = Product.objects.get(name='Comprehensive Test Product')\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\manager.py\", line 87, in manager_method\n    return getattr(self.get_queryset(), name)(*args, **kwargs)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 633, in get\n    raise self.model.DoesNotExist(\n        \"%s matching query does not exist.\" % self.model._meta.object_name\n    )\nshop.models.Product.DoesNotExist: Product matching query does not exist.\n\n======================================================================\nERROR: test_concurrent_cart_operations (shop.tests.ConcurrencyTest.test_concurrent_cart_operations)\nTest concurrent cart operations\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 876, in test_concurrent_cart_operations\n    cart = Cart.objects.get(user=self.buyer)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\manager.py\", line 87, in manager_method\n    return getattr(self.get_queryset(), name)(*args, **kwargs)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\query.py\", line 633, in get\n    raise self.model.DoesNotExist(\n        \"%s matching query does not exist.\" % self.model._meta.object_name\n    )\nshop.models.Cart.DoesNotExist: Cart matching query does not exist.\n\n======================================================================\nERROR: test_user_email_validation (shop.tests.DataValidationTest.test_user_email_validation)\nTest user email validation\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 798, in test_user_email_validation\n    user.full_clean()  # Should not raise exception\n    ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\base.py\", line 1679, in full_clean\n    raise ValidationError(errors)\ndjango.core.exceptions.ValidationError: {'password': ['This field cannot be blank.']}\n\n======================================================================\nERROR: test_product_with_negative_price (shop.tests.EdgeCaseTest.test_product_with_negative_price)\nTest product creation with negative price\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 503, in test_product_with_negative_price\n    response = self.client.post(reverse('product_create'), {\n        'name': 'Negative Product',\n    ...<2 lines>...\n        'image': 'https://example.com/image.jpg'\n    })\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 1153, in post\n    response = super().post(\n        path,\n    ...<5 lines>...\n        **extra,\n    )\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 499, in post\n    return self.generic(\n           ~~~~~~~~~~~~^\n        \"POST\",\n        ^^^^^^^\n    ...<6 lines>...\n        **extra,\n        ^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 671, in generic\n    return self.request(**r)\n           ~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 1087, in request\n    self.check_exception(response)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 802, in check_exception\n    raise exc_value\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\core\\handlers\\exception.py\", line 55, in inner\n    response = get_response(request)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\core\\handlers\\base.py\", line 197, in _get_response\n    response = wrapped_callback(request, *callback_args, **callback_kwargs)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\decorators.py\", line 59, in _view_wrapper\n    return view_func(request, *args, **kwargs)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\views.py\", line 153, in product_create\n    product.shop = request.user.shop\n                   ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\utils\\functional.py\", line 253, in inner\n    return func(_wrapped, *args)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\fields\\related_descriptors.py\", line 534, in __get__\n    raise self.RelatedObjectDoesNotExist(\n    ...<2 lines>...\n    )\nshop.models.User.shop.RelatedObjectDoesNotExist: User has no shop.\n\n======================================================================\nERROR: test_product_with_zero_price (shop.tests.EdgeCaseTest.test_product_with_zero_price)\nTest product creation with zero price\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 489, in test_product_with_zero_price\n    response = self.client.post(reverse('product_create'), {\n        'name': 'Free Product',\n    ...<2 lines>...\n        'image': 'https://example.com/image.jpg'\n    })\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 1153, in post\n    response = super().post(\n        path,\n    ...<5 lines>...\n        **extra,\n    )\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 499, in post\n    return self.generic(\n           ~~~~~~~~~~~~^\n        \"POST\",\n        ^^^^^^^\n    ...<6 lines>...\n        **extra,\n        ^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 671, in generic\n    return self.request(**r)\n           ~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 1087, in request\n    self.check_exception(response)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 802, in check_exception\n    raise exc_value\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\core\\handlers\\exception.py\", line 55, in inner\n    response = get_response(request)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\core\\handlers\\base.py\", line 197, in _get_response\n    response = wrapped_callback(request, *callback_args, **callback_kwargs)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\decorators.py\", line 59, in _view_wrapper\n    return view_func(request, *args, **kwargs)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\views.py\", line 153, in product_create\n    product.shop = request.user.shop\n                   ^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\utils\\functional.py\", line 253, in inner\n    return func(_wrapped, *args)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\db\\models\\fields\\related_descriptors.py\", line 534, in __get__\n    raise self.RelatedObjectDoesNotExist(\n    ...<2 lines>...\n    )\nshop.models.User.shop.RelatedObjectDoesNotExist: User has no shop.\n\n======================================================================\nERROR: test_malformed_form_data (shop.tests.ErrorHandlingTest.test_malformed_form_data)\nTest form submission with malformed data\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 903, in test_malformed_form_data\n    response = self.client.post(reverse('signup'), {\n        'username': '',  # Empty username\n    ...<2 lines>...\n        'role': 'invalid-role'\n    })\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 1153, in post\n    response = super().post(\n        path,\n    ...<5 lines>...\n        **extra,\n    )\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 499, in post\n    return self.generic(\n           ~~~~~~~~~~~~^\n        \"POST\",\n        ^^^^^^^\n    ...<6 lines>...\n        **extra,\n        ^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 671, in generic\n    return self.request(**r)\n           ~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 1087, in request\n    self.check_exception(response)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 802, in check_exception\n    raise exc_value\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\core\\handlers\\exception.py\", line 55, in inner\n    response = get_response(request)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\core\\handlers\\base.py\", line 197, in _get_response\n    response = wrapped_callback(request, *callback_args, **callback_kwargs)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\views.py\", line 106, in signup_view\n    user = User.objects.create_user(username=username, email=email, password=password, role=role)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\models.py\", line 175, in create_user\n    return self._create_user(username, email, password, **extra_fields)\n           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\models.py\", line 162, in _create_user\n    user = self._create_user_object(username, email, password, **extra_fields)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\models.py\", line 145, in _create_user_object\n    raise ValueError(\"The given username must be set\")\nValueError: The given username must be set\n\n======================================================================\nERROR: test_database_query_optimization (shop.tests.PerformanceTest.test_database_query_optimization)\nTest that database queries are optimized\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 559, in test_database_query_optimization\n    connection.queries = []\n    ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\utils\\connection.py\", line 18, in __setattr__\n    return setattr(self._connections[self._alias], name, value)\nAttributeError: property 'queries' of 'DatabaseWrapper' object has no setter\n\n======================================================================\nERROR: test_form_validation_messages (shop.tests.UsabilityTest.test_form_validation_messages)\nTest form validation messages\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 967, in test_form_validation_messages\n    response = self.client.post(reverse('signup'), {\n        'username': '',  # Empty username\n    ...<2 lines>...\n        'role': 'buyer'\n    })\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 1153, in post\n    response = super().post(\n        path,\n    ...<5 lines>...\n        **extra,\n    )\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 499, in post\n    return self.generic(\n           ~~~~~~~~~~~~^\n        \"POST\",\n        ^^^^^^^\n    ...<6 lines>...\n        **extra,\n        ^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 671, in generic\n    return self.request(**r)\n           ~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 1087, in request\n    self.check_exception(response)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\test\\client.py\", line 802, in check_exception\n    raise exc_value\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\core\\handlers\\exception.py\", line 55, in inner\n    response = get_response(request)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\core\\handlers\\base.py\", line 197, in _get_response\n    response = wrapped_callback(request, *callback_args, **callback_kwargs)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\views.py\", line 106, in signup_view\n    user = User.objects.create_user(username=username, email=email, password=password, role=role)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\models.py\", line 175, in create_user\n    return self._create_user(username, email, password, **extra_fields)\n           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\models.py\", line 162, in _create_user\n    user = self._create_user_object(username, email, password, **extra_fields)\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\venv\\Lib\\site-packages\\django\\contrib\\auth\\models.py\", line 145, in _create_user_object\n    raise ValueError(\"The given username must be set\")\nValueError: The given username must be set\n\n======================================================================\nFAIL: test_product_price_validation (shop.tests.DataValidationTest.test_product_price_validation)\nTest product price validation\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 787, in test_product_price_validation\n    with self.assertRaises(ValidationError):\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\nAssertionError: ValidationError not raised\n\n======================================================================\nFAIL: test_product_price_validation (shop.tests.ProductModelTest.test_product_price_validation)\nTest product price validation\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 83, in test_product_price_validation\n    with self.assertRaises(ValidationError):\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\nAssertionError: ValidationError not raised\n\n======================================================================\nFAIL: test_csrf_protection (shop.tests.SecurityTest.test_csrf_protection)\nTest CSRF protection on forms\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 627, in test_csrf_protection\n    self.assertEqual(response.status_code, 403)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 302 != 403\n\n======================================================================\nFAIL: test_success_messages (shop.tests.UsabilityTest.test_success_messages)\nTest success messages after actions\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 988, in test_success_messages\n    self.assertEqual(response.status_code, 302)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 200 != 302\n\n======================================================================\nFAIL: test_buyer_registration_and_purchase_workflow (shop.tests.UserWorkflowTest.test_buyer_registration_and_purchase_workflow)\nTest complete buyer registration and purchase workflow\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\22i223\\Documents\\Software-Testing-Lab\\e-comm\\ecomm\\shop\\tests.py\", line 347, in test_buyer_registration_and_purchase_workflow\n    self.assertEqual(response.status_code, 302)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 200 != 302\n\n----------------------------------------------------------------------\nRan 49 tests in 31.831s\n\nFAILED (failures=5, errors=8)\nDestroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...\n\n"
+}
+2025-07-29 09:57:55,606 - django_detailed - INFO - ============================================================
+2025-07-29 09:57:55,606 - django_detailed - INFO - TEST SESSION ENDED
+2025-07-29 09:57:55,606 - django_detailed - INFO - ============================================================
+2025-07-29 09:57:55,606 - django_detailed - INFO - 
+Test Session Summary:
+====================
+Test Type: django
+Timestamp: 20250729_095723
+Duration: 32.35 seconds
+
+Test Results:
+-------------
+Total Tests: 0
+Passed: 0
+Failed: 1
+Skipped: 0
+Success Rate: 0.0%
+
+Performance Metrics:
+-------------------
+Average Test Duration: 0.00s (if applicable)
+
+Log Files:
+----------
+Detailed Log: django_detailed_20250729_095723.log
+Summary Log: django_summary_20250729_095723.log
+Error Log: django_errors_20250729_095723.log
+Performance Log: django_performance_20250729_095723.log
+Statistics: django_stats_20250729_095723.json
+

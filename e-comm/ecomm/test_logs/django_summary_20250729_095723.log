@@ -1,0 +1,31 @@
+2025-07-29 09:57:55,605 - ERROR - FAIL: Command: All Tests - Exit code: 1
+2025-07-29 09:57:55,606 - INFO - ============================================================
+2025-07-29 09:57:55,606 - INFO - TEST SUMMARY
+2025-07-29 09:57:55,606 - INFO - ============================================================
+2025-07-29 09:57:55,606 - INFO - 
+Test Session Summary:
+====================
+Test Type: django
+Timestamp: 20250729_095723
+Duration: 32.35 seconds
+
+Test Results:
+-------------
+Total Tests: 0
+Passed: 0
+Failed: 1
+Skipped: 0
+Success Rate: 0.0%
+
+Performance Metrics:
+-------------------
+Average Test Duration: 0.00s (if applicable)
+
+Log Files:
+----------
+Detailed Log: django_detailed_20250729_095723.log
+Summary Log: django_summary_20250729_095723.log
+Error Log: django_errors_20250729_095723.log
+Performance Log: django_performance_20250729_095723.log
+Statistics: django_stats_20250729_095723.json
+
