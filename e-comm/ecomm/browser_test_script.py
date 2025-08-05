@@ -295,39 +295,72 @@ class BrowserTestScript:
             logger.error(f"Failed to check logo availability: {e}")
             return False
     
-    def test_autosuggestions(self):
-        """Test if autosuggestions are working"""
+    def logout_user(self):
+        """Logout the current user"""
         try:
-            self.driver.get(f"{self.base_url}/search/")  # Assuming search page exists
+            self.driver.get(f"{self.base_url}/logout/")
+            time.sleep(2)
+            
+            # Check if logout was successful
+            page_source = self.driver.page_source.lower()
+            current_url = self.driver.current_url
+            
+            logout_indicators = [
+                'login' in current_url,
+                'sign up' in page_source,
+                'welcome' in page_source,
+                'products' in page_source
+            ]
+            
+            success = any(logout_indicators)
+            logger.info(f"User logout: {'SUCCESS' if success else 'FAILED'}")
+            return success
+        except Exception as e:
+            logger.error(f"Failed to logout user: {e}")
+            return False
+
+    def test_autosuggestions(self):
+        """Test if autosuggestions are working with 'laptop' search term"""
+        try:
+            self.driver.get(f"{self.base_url}/")
             
             # Look for search input
-            search_input = self.driver.find_element(By.CSS_SELECTOR, 'input[type="search"], input[name="q"], input[placeholder*="search"]')
+            search_input = self.driver.find_element(By.CSS_SELECTOR, 'input[name="q"], input[placeholder*="search"]')
             search_input.click()
-            search_input.send_keys("test")
+            
+            # Type "laptop" for testing autosuggestions
+            search_input.send_keys("laptop")
             
             time.sleep(2)
             
             # Check for autosuggestion dropdown
             autosuggestion_selectors = [
-                '.autocomplete',
-                '.suggestions',
+                '#searchSuggestions',
                 '.dropdown-menu',
                 '[role="listbox"]',
-                '.search-suggestions'
+                '.search-suggestions',
+                '.autocomplete'
             ]
             
             autosuggestion_found = False
+            suggestions_text = []
+            
             for selector in autosuggestion_selectors:
                 try:
                     suggestions = self.driver.find_elements(By.CSS_SELECTOR, selector)
                     if suggestions:
-                        autosuggestion_found = True
-                        logger.info(f"Autosuggestions found with selector: {selector}")
-                        break
+                        for suggestion in suggestions:
+                            if suggestion.is_displayed():
+                                suggestions_text.append(suggestion.text)
+                                autosuggestion_found = True
+                        if autosuggestion_found:
+                            logger.info(f"Autosuggestions found with selector: {selector}")
+                            logger.info(f"Suggestions content: {suggestions_text}")
+                            break
                 except:
                     continue
             
-            logger.info(f"Autosuggestions test: {'WORKING' if autosuggestion_found else 'NOT WORKING'}")
+            logger.info(f"Autosuggestions test with 'laptop': {'WORKING' if autosuggestion_found else 'NOT WORKING'}")
             return autosuggestion_found
         except Exception as e:
             logger.error(f"Failed to test autosuggestions: {e}")
@@ -384,7 +417,10 @@ class BrowserTestScript:
             # 4. Test dropdowns
             dropdowns_working = self.test_dropdowns()
             
-            # 5. Register different user types
+            # 5. Test autosuggestions with "laptop"
+            autosuggestions_working = self.test_autosuggestions()
+            
+            # 6. Register different user types
             users_to_register = [
                 ('testuser1', 'test1@example.com', 'password123', 'buyer'),
                 ('testadmin', 'admin@example.com', 'adminpass123', 'seller'),
@@ -400,33 +436,51 @@ class BrowserTestScript:
                     'success': success
                 })
             
-            # 6. Test invalid login
+            # 7. Test invalid login
             invalid_login_result = self.test_invalid_login('invaliduser', 'wrongpassword')
             
-            # 7. Test valid login and get user info
-            user_info = self.login_and_get_user_info('testuser1', 'password123')
+            # 8. Test multiple user logins with proper logout between each
+            login_test_results = []
+            test_users = [
+                ('testuser1', 'password123'),
+                ('testadmin', 'adminpass123'),
+                ('guestuser', 'guestpass123')
+            ]
             
-            # 8. Delete cookies
+            for username, password in test_users:
+                # Login user
+                user_info = self.login_and_get_user_info(username, password)
+                login_test_results.append({
+                    'username': username,
+                    'login_success': user_info is not None,
+                    'user_info': user_info
+                })
+                
+                # Logout before testing next user
+                logout_success = self.logout_user()
+                logger.info(f"Logout after testing {username}: {'SUCCESS' if logout_success else 'FAILED'}")
+                
+                # Wait a moment before next test
+                time.sleep(2)
+            
+            # 9. Delete cookies
             self.delete_all_cookies()
             
-            # 9. Print session info
+            # 10. Print session info
             session_info = self.print_session_info('testuser1')
             
-            # 10. Test window closing logout
+            # 11. Test window closing logout
             logout_on_close = self.test_window_closing_logout('testuser1')
-            
-            # 11. Test autosuggestions (if available)
-            autosuggestions_working = self.test_autosuggestions()
             
             # Compile results
             test_results = {
                 'logo_available': logo_available,
                 'dropdowns_working': dropdowns_working,
+                'autosuggestions_working': autosuggestions_working,
                 'registration_results': registration_results,
                 'invalid_login_test': invalid_login_result,
-                'user_info': user_info,
-                'logout_on_window_close': logout_on_close,
-                'autosuggestions_working': autosuggestions_working
+                'login_test_results': login_test_results,
+                'logout_on_window_close': logout_on_close
             }
             
             logger.info("Comprehensive test completed")
@@ -477,12 +531,14 @@ def main():
             print("4. Set window size")
             print("5. Check logo")
             print("6. Test dropdowns")
-            print("7. Register user")
-            print("8. Test invalid login")
-            print("9. Login and get user info")
-            print("10. Exit")
+            print("7. Test autosuggestions with 'laptop'")
+            print("8. Register user")
+            print("9. Test invalid login")
+            print("10. Login and get user info")
+            print("11. Logout user")
+            print("12. Exit")
             
-            cmd = input("Enter command (1-10): ")
+            cmd = input("Enter command (1-12): ")
             
             if cmd == "1":
                 script.open_browser()
@@ -513,6 +569,12 @@ def main():
                 password = input("Enter password: ")
                 script.login_and_get_user_info(username, password)
             elif cmd == "10":
+                username = input("Enter username: ")
+                password = input("Enter password: ")
+                script.login_and_get_user_info(username, password)
+            elif cmd == "11":
+                script.logout_user()
+            elif cmd == "12":
                 script.close_browser()
                 break
     

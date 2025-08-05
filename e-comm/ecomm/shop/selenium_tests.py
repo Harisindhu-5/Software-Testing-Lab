@@ -131,6 +131,34 @@ class SeleniumWebDriverTest(LiveServerTestCase):
         time.sleep(2)
         logger.info(f"Login completed. Current URL: {self.driver.current_url}")
     
+    def logout_user(self):
+        """Helper method to logout a user"""
+        logger.info("Logging out user")
+        
+        try:
+            # Navigate to logout page
+            self.driver.get(f'{self.live_server_url}/logout/')
+            time.sleep(2)
+            
+            # Check if logout was successful
+            current_url = self.driver.current_url
+            page_source = self.driver.page_source.lower()
+            
+            logout_indicators = [
+                'login' in current_url,
+                'sign up' in page_source,
+                'welcome' in page_source,
+                'products' in page_source
+            ]
+            
+            success = any(logout_indicators)
+            logger.info(f"Logout completed. Current URL: {current_url}")
+            logger.info(f"Logout success: {success}")
+            return success
+        except Exception as e:
+            logger.error(f"Failed to logout: {e}")
+            return False
+    
     def test_user_registration_selenium(self):
         """Test user registration using Selenium WebDriver"""
         logger.info("Starting user registration test")
@@ -221,6 +249,11 @@ class SeleniumWebDriverTest(LiveServerTestCase):
             f"Login should redirect to products or show user info. URL: {current_url}, Page content: {page_source[:200]}..."
         )
         logger.info("User login test passed")
+        
+        # Logout after successful login test
+        logout_success = self.logout_user()
+        self.assertTrue(logout_success, "User should be able to logout successfully")
+        logger.info("User logout test passed")
     
     def test_product_browsing_selenium(self):
         """Test product browsing using Selenium WebDriver"""
