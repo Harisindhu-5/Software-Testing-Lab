@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">INVOICE</h3>
+        </div>
+        <div class="card-body">
+          <!-- Invoice Header -->
+          <div class="row mb-4">
+            <div class="col-6">
+              <h5>Invoice Details</h5>
+              <p><strong>Invoice #:</strong> {{ order.id }}</p>
+              <p><strong>Date:</strong> {{ order.created_at|date:"F d, Y" }}</p>
+              <p><strong>Status:</strong> 
+                <span class="badge bg-success">Paid</span>
+              </p>
+            </div>
+            <div class="col-6 text-end">
+              <h5>Customer Information</h5>
+              <p><strong>Name:</strong> {{ order.user.username }}</p>
+              <p><strong>Email:</strong> {{ order.user.email }}</p>
+              <p><strong>Address:</strong> {{ order.address }}</p>
+            </div>
+          </div>
+          
+          <!-- Order Items -->
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="table-dark">
+                <tr>
+                  <th>Item</th>
+                  <th>Description</th>
+                  <th>Quantity</th>
+                  <th>Unit Price</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in order.items.all %}
+                <tr>
+                  <td>{{ item.product.name }}</td>
+                  <td>{{ item.product.description|truncatewords:10 }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>${{ item.price }}</td>
+                  <td>${{ item.price|floatformat:2 }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+              <tfoot class="table-light">
+                <tr>
+                  <td colspan="4" class="text-end"><strong>Total:</strong></td>
+                  <td><strong>${{ order.total_amount|floatformat:2 }}</strong></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          
+          <!-- Payment Information -->
+          <div class="row mt-4">
+            <div class="col-12">
+              <h5>Payment Information</h5>
+              <p><strong>Payment Method:</strong> Credit Card</p>
+              <p><strong>Transaction ID:</strong> TXN-{{ order.id }}-{{ order.created_at|date:"Ymd" }}</p>
+              <p><strong>Payment Date:</strong> {{ order.created_at|date:"F d, Y H:i" }}</p>
+            </div>
+          </div>
+          
+          <!-- Terms and Conditions -->
+          <div class="row mt-4">
+            <div class="col-12">
+              <h6>Terms and Conditions</h6>
+              <ul class="small text-muted">
+                <li>This invoice is valid for 30 days from the date of issue.</li>
+                <li>All prices are in USD and include applicable taxes.</li>
+                <li>Returns are accepted within 14 days of purchase.</li>
+                <li>For any queries, please contact our customer support.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="row mt-4">
+            <div class="col-12 text-center">
+              <button onclick="window.print()" class="btn btn-primary">Print Invoice</button>
+              <a href="{% url 'orders' %}" class="btn btn-secondary">Back to Orders</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+@media print {
+  .navbar, .btn { display: none !important; }
+  .card { border: none !important; }
+  .card-header { background: white !important; }
+}
+</style>
+{% endblock %} 

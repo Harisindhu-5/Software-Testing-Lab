@@ -7,17 +7,50 @@ from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.contrib.auth import get_user_model
 from django.forms import ModelForm
+from django.http import JsonResponse
+from django.db.models import Q
 
 # Create your views here.
 
 # Product listing and sorting
 def product_list(request):
     sort = request.GET.get('sort', 'name')
+    search_query = request.GET.get('q', '')
+    
+    products = Product.objects.all()
+    
+    # Apply search filter
+    if search_query:
+        products = products.filter(
+            Q(name__icontains=search_query) |
+            Q(description__icontains=search_query)
+        )
+    
+    # Apply sorting
     if sort == 'price':
-        products = Product.objects.all().order_by('price')
+        products = products.order_by('price')
     else:
-        products = Product.objects.all().order_by('name')
-    return render(request, 'shop/product_list.html', {'products': products})
+        products = products.order_by('name')
+    
+    return render(request, 'shop/product_list.html', {
+        'products': products,
+        'search_query': search_query,
+        'sort': sort
+    })
+
+def search_suggestions(request):
+    """AJAX endpoint for search autosuggestions"""
+    query = request.GET.get('q', '')
+    if len(query) < 2:
+        return JsonResponse({'suggestions': []})
+    
+    products = Product.objects.filter(
+        Q(name__icontains=query) |
+        Q(description__icontains=query)
+    )[:5]
+    
+    suggestions = [{'name': product.name, 'id': product.id} for product in products]
+    return JsonResponse({'suggestions': suggestions})
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -194,3 +227,33 @@ def checkout(request):
         form = CheckoutForm()
     total_price = sum(item.product.price * item.quantity for item in items)
     return render(request, 'shop/checkout.html', {'form': form, 'items': items, 'total_price': total_price})
+
+@login_required
+def invoice_view(request, order_id):
+    """View invoice for a specific order"""
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+    return render(request, 'shop/invoice.html', {'order': order})
+
+@login_required
+def user_profile(request):
+    """View user profile with purchase history"""
+    user = request.user
+    orders = Order.objects.filter(user=user).prefetch_related('items__product')
+    
+    # Get purchased items
+    purchased_items = []
+    for order in orders:
+        for item in order.items.all():
+            purchased_items.append({
+                'product': item.product,
+                'quantity': item.quantity,
+                'price': item.price,
+                'order_date': order.created_at,
+                'order_id': order.id
+            })
+    
+    return render(request, 'shop/user_profile.html', {
+        'user': user,
+        'purchased_items': purchased_items,
+        'orders': orders
+    })

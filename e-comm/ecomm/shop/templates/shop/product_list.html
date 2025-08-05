@@ -2,13 +2,37 @@
 {% block content %}
 <div class="container mt-4">
   <h2>Products</h2>
+  
+  <!-- Search Form -->
   <form method="get" class="mb-3">
-    <select name="sort" class="form-select w-auto d-inline">
-      <option value="name">Sort by Name</option>
-      <option value="price">Sort by Price</option>
-    </select>
-    <button type="submit" class="btn btn-primary">Sort</button>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search products..." 
+                 value="{{ search_query }}" id="searchInput">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+        <!-- Autosuggestions dropdown -->
+        <div id="searchSuggestions" class="dropdown-menu w-100" style="display: none;">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <select name="sort" class="form-select w-auto d-inline">
+          <option value="name" {% if sort == 'name' %}selected{% endif %}>Sort by Name</option>
+          <option value="price" {% if sort == 'price' %}selected{% endif %}>Sort by Price</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Sort</button>
+      </div>
+    </div>
   </form>
+  
+  <!-- Search Results Info -->
+  {% if search_query %}
+    <div class="alert alert-info">
+      Search results for "{{ search_query }}": {{ products|length }} product(s) found
+    </div>
+  {% endif %}
+  
   <div class="row">
     {% for product in products %}
     <div class="col-md-4">
@@ -22,7 +46,67 @@
         </div>
       </div>
     </div>
+    {% empty %}
+    <div class="col-12">
+      <div class="alert alert-warning">
+        {% if search_query %}
+          No products found matching "{{ search_query }}"
+        {% else %}
+          No products available
+        {% endif %}
+      </div>
+    </div>
     {% endfor %}
   </div>
 </div>
+
+<script>
+// Autosuggestions functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const suggestionsDiv = document.getElementById('searchSuggestions');
+    let timeoutId;
+
+    searchInput.addEventListener('input', function() {
+        clearTimeout(timeoutId);
+        const query = this.value.trim();
+        
+        if (query.length < 2) {
+            suggestionsDiv.style.display = 'none';
+            return;
+        }
+        
+        timeoutId = setTimeout(function() {
+            fetch(`/search/suggestions/?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    suggestionsDiv.innerHTML = '';
+                    
+                    if (data.suggestions.length > 0) {
+                        data.suggestions.forEach(suggestion => {
+                            const item = document.createElement('a');
+                            item.className = 'dropdown-item';
+                            item.href = `/product/${suggestion.id}/`;
+                            item.textContent = suggestion.name;
+                            suggestionsDiv.appendChild(item);
+                        });
+                        suggestionsDiv.style.display = 'block';
+                    } else {
+                        suggestionsDiv.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching suggestions:', error);
+                });
+        }, 300);
+    });
+    
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !suggestionsDiv.contains(e.target)) {
+            suggestionsDiv.style.display = 'none';
+        }
+    });
+});
+</script>
 {% endblock %} 

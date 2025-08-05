@@ -1,28 +1,84 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container mt-4">
-  <h2>Your Orders</h2>
+  <h2><i class="fas fa-list me-2"></i>Your Orders</h2>
   <div class="accordion" id="ordersAccordion">
     {% for order in orders %}
     <div class="accordion-item">
       <h2 class="accordion-header" id="heading{{ order.id }}">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="false" aria-controls="collapse{{ order.id }}">
-          Order #{{ order.id }} - {{ order.status }} - {{ order.created_at|date:'Y-m-d H:i' }}
+          <div class="d-flex justify-content-between align-items-center w-100 me-3">
+            <span>
+              <i class="fas fa-shopping-bag me-2"></i>
+              Order #{{ order.id }} - {{ order.created_at|date:'M d, Y H:i' }}
+            </span>
+            <span class="badge bg-success">Completed</span>
+          </div>
         </button>
       </h2>
       <div id="collapse{{ order.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ order.id }}" data-bs-parent="#ordersAccordion">
         <div class="accordion-body">
-          <p><strong>Address:</strong> {{ order.address }}</p>
-          <ul>
-            {% for item in order.items.all %}
-            <li>{{ item.quantity }} x {{ item.product.name }} @ ${{ item.price }}</li>
-            {% endfor %}
-          </ul>
+          <div class="row">
+            <div class="col-md-8">
+              <p><strong><i class="fas fa-map-marker-alt me-1"></i>Address:</strong> {{ order.address }}</p>
+              <div class="table-responsive">
+                <table class="table table-sm">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in order.items.all %}
+                    <tr>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <img src="{{ item.product.image }}" alt="{{ item.product.name }}" 
+                               class="me-2" style="width: 30px; height: 30px; object-fit: cover;">
+                          {{ item.product.name }}
+                        </div>
+                      </td>
+                      <td>{{ item.quantity }}</td>
+                      <td>${{ item.price }}</td>
+                      <td>${{ item.price|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                  <tfoot class="table-light">
+                    <tr>
+                      <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                      <td><strong>${{ order.total_amount|floatformat:2 }}</strong></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-grid gap-2">
+                <a href="{% url 'invoice' order.id %}" class="btn btn-primary">
+                  <i class="fas fa-file-invoice me-1"></i>View Invoice
+                </a>
+                <button class="btn btn-outline-secondary" onclick="window.print()">
+                  <i class="fas fa-print me-1"></i>Print Order
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     {% empty %}
-    <p>No orders found.</p>
+    <div class="text-center py-5">
+      <i class="fas fa-shopping-bag text-muted" style="font-size: 4rem;"></i>
+      <h5 class="text-muted mt-3">No orders yet</h5>
+      <p class="text-muted">Start shopping to see your orders here!</p>
+      <a href="{% url 'product_list' %}" class="btn btn-primary">
+        <i class="fas fa-shopping-cart me-1"></i>Browse Products
+      </a>
+    </div>
     {% endfor %}
   </div>
 </div>
